@@ -1,0 +1,29 @@
+---
+import dayjs from 'dayjs';
+import type { PostPreview } from '@src/types';
+import CoverImage from './CoverImage.astro';
+
+type Props = {
+  post: PostPreview;
+};
+
+const { post } = Astro.props;
+const href = `/blog/${post.slug}`;
+---
+
+<div class="card h-full min-w-[300px] max-w-md bg-zinc-800 shadow-sm">
+  <div class="card-body p-4 sm:p-6">
+    <figure class="mb-4 w-full justify-stretch rounded-lg">
+      <a href={href} class="w-full">
+        <CoverImage imageUrl={post.coverImage?.url} altText={post.title} />
+      </a>
+    </figure>
+    <h2 class="card-title md:text-2xl">
+      <a href={href}>{post.title}</a>
+    </h2>
+    <p class="text-sm md:text-base">
+      <a href={href}>{dayjs(post.publishedAt).format('D MMMM YYYY')}</a>
+    </p>
+    <p class="md:text-lg"><a href={href}>{post.brief}</a></p>
+  </div>
+</div>

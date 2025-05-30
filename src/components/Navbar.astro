@@ -1,0 +1,18 @@
+---
+import Container from './Container.astro';
+import Logo from './Logo.astro';
+import NavMenu from './NavMenu';
+---
+
+<div class="navbar bg-gray-400 p-0">
+  <Container>
+    <div class="relative flex w-full items-center justify-between">
+      <div>
+        <a href="/">
+          <Logo />
+        </a>
+      </div>
+      <NavMenu client:load />
+    </div>
+  </Container>
+</div>

@@ -1,0 +1,30 @@
+---
+import type { Author } from '@src/types';
+import { Image } from 'astro:assets';
+
+type Props = {
+  author: Author;
+};
+const { author } = Astro.props;
+console.log(author);
+---
+
+<div
+  class="flex flex-col items-center gap-10 text-center text-lg"
+  style="text-wrap:balance;"
+>
+  <Image
+    src={author.profilePicture}
+    width="300"
+    height="300"
+    class="h-32 w-32"
+    alt={author.name}
+  />
+  <p>
+    {
+      author.bio.text && author.bio.text.length > 0
+        ? author.bio.text
+        : `Hey there! I'm your friendly neighborhood software engineer, fueled by strong coffee, epic tunes, and an unending quest for clean code (and cat cuddles, obviously). When I'm not busy wrangling GraphQL, REST, gRPC, and microservices into submission, you can usually find me whipping up something delicious in the kitchen for my amazing wife or diving headfirst into the wild world of AI. I'm all about pushing the boundaries of what's possible in tech and sharing every 'aha!' moment along the way. Stick around, it's gonna be a fun ride.`
+    }
+  </p>
+</div>
