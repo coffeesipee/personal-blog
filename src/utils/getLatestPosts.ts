@@ -6,6 +6,7 @@ const query = {
       posts(first:6) {
         edges{
           node{
+            id 
             slug
             title
             publishedAt

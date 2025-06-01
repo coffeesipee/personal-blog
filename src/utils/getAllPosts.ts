@@ -10,6 +10,7 @@ const query = (cursor: string, preview: boolean) => ({
         }
         edges {
           node {
+            id
             slug
             title
             publishedAt

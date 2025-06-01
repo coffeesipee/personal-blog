@@ -10,6 +10,7 @@ const query = {
         text
       }
       author {
+        id
         profilePicture
         name
         bio{ text }

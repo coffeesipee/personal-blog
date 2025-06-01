@@ -5,6 +5,7 @@ const query = {
     publication(id: "${import.meta.env.HASHNODE_PUBLICATION_ID}") {
       url
       staticPage(slug: "about") {
+        id
         content{ markdown }
         slug
       }
